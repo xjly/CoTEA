@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+/runs/
+/third_party/
+/experiments/wuxi_suite_20261108/cache/
+/experiments/wuxi_suite_20261108/profiles/
+/experiments/wuxi_suite_20261108/reference/
+/experiments/wuxi_suite_20261108/runs/
+/experiments/wuxi_suite_20261108/*.json
+/experiments/wuxi_suite_20261108/beta30_baselines/
+/experiments/wuxi_suite_20261108/dicews_baselines/
+/experiments/wuxi_suite_20261108/wuxi_int_dataset/
+*.npz
+*.npy
+*.pt
