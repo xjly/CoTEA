@@ -1,4 +1,4 @@
-"""Reproduce the DICEWS-1K MSEA-Align experiment and relation-namespace audit."""
+"""Reproduce the DICEWS-1K CoTEA experiment and relation-namespace audit."""
 
 import argparse
 from collections import Counter

@@ -1,4 +1,4 @@
-"""Train and evaluate MSEA-Align arms on WUXI-TEMP under the exact manifest protocol."""
+"""Train and evaluate the CoTEA experimental configurations on WUXI-TEMP."""
 import argparse
 import gc
 import json

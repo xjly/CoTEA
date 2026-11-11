@@ -1,10 +1,14 @@
-# MSEA-Align
+# CoTEA: Temporal Entity Alignment via Contextual Events and Water Network Topology
+
+Code and datasets for the ICDE 2027 submission.
 
 ## Run the experiments
 
-Run the commands from the repository root. The training and full evaluations require an NVIDIA GPU with CUDA. Use Python 3.10 and PyTorch 2.6 with CUDA 11.8 to match the baseline environment. Select one GPU with `CUDA_VISIBLE_DEVICES`.
+The training and full evaluations require an NVIDIA GPU with CUDA. Use Python 3.10 and PyTorch 2.6 with CUDA 11.8 to match the baseline environment. Select one GPU with `CUDA_VISIBLE_DEVICES`.
 
 ```bash
+git clone https://github.com/xjly/CoTEA.git
+cd CoTEA
 python -m pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cu118
 python -m pip install -r reproduction/requirements.txt numpy==1.26.4 scipy==1.15.2
 export CUDA_VISIBLE_DEVICES=0 OMP_NUM_THREADS=4 MKL_NUM_THREADS=4

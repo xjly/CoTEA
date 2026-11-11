@@ -1,6 +1,6 @@
 """Protocol Audit 1 & 2:
 1. Row-wise Cosine & Row-wise CSLS-5 (without Sinkhorn) vs. Balanced Sinkhorn on Open Pools (WUXI-TEMP 5483, DICEWS 9537, BETA-30%).
-2. Shared Relation Labels vs. Strictly Disjoint Relation Namespace on DICEWS-1K for both baselines and MSEA-Align.
+2. Shared and disjoint relation namespaces on DICEWS-1K for the baselines and CoTEA.
 """
 from collections import Counter, defaultdict
 import gc
@@ -175,7 +175,7 @@ def eval_wuxi_nosinkhorn_audit():
     feat_mgtea = torch.from_numpy(np.load(suite_dir / 'mgtea_wuxi_embeddings.npy')).cuda()
     sim_mgtea = (feat_mgtea[:n] @ feat_mgtea[n:].T + 0.5 * S_time_dice) / 1.5
 
-    # Reconstruct MSEA-Align composite CSLS matrix on WUXI-TEMP
+    # Reconstruct the CoTEA composite CSLS matrix on WUXI-TEMP.
     sys.path.insert(0, str(suite_dir))
     from train_wuxi_suite import csls_matrix
     z_ht_full = np.load(suite_dir / 'runs/hier_time/final_full_vectors.npy')
@@ -434,7 +434,7 @@ def run_dicews_relation_and_nosinkhorn_audit():
     lea_shared, ltea_shared = eval_lighttea_under_rel_mode(triples_shared, total_r_shared, S_time_dice)
     lea_disjoint, ltea_disjoint = eval_lighttea_under_rel_mode(triples_disjoint, total_r_disjoint, S_time_dice)
 
-    # Also evaluate our frozen MSEA-Align (shared relation induced, step 325) under No-Sinkhorn vs Sinkhorn
+    # Evaluate the frozen CoTEA checkpoint (shared relations, step 325) with and without Sinkhorn.
     dicews_run = ROOT_EXP / 'runs/dicews/shared'
     z_msea_shared = torch.from_numpy(np.load(dicews_run / 'best_vectors.npy')).cuda()
     sim_msea_shared = z_msea_shared[:n] @ z_msea_shared[n:].T
